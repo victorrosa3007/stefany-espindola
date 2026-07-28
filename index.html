@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stefany Espindola</title>
+  <meta name="description" content="Estúdio de beleza especializado em cílios, sobrancelhas e lábios. Atendimento na Rua Curió, 211.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #101010;
+      --panel: #1a1a1a;
+      --panel-2: #242424;
+      --text: #f3efea;
+      --muted: #c7beb8;
+      --gold: #d8b64a;
+      --rose: #f2a7b8;
+      --line: rgba(216, 182, 74, .28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Montserrat, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px clamp(18px, 5vw, 72px);
+      background: rgba(16, 16, 16, .82);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 700;
+      letter-spacing: .03em;
+      color: var(--gold);
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .nav a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 560px);
+      gap: clamp(28px, 6vw, 80px);
+      align-items: center;
+      padding: 124px clamp(18px, 5vw, 72px) 54px;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      line-height: 1.08;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(46px, 8vw, 92px);
+    }
+
+    h1 span, h2 span { color: var(--gold); font-style: italic; }
+
+    .hero p {
+      max-width: 590px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border: 1px solid var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .button.primary {
+      background: var(--gold);
+      color: #16130b;
+    }
+
+    .button.secondary { color: var(--gold); }
+    .button:hover { border-color: var(--rose); background: var(--rose); color: #170f10; }
+
+    .hero-card {
+      position: relative;
+      min-height: 620px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 84px clamp(18px, 5vw, 72px);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    h2 { font-size: clamp(36px, 5vw, 58px); }
+    .section-head p {
+      max-width: 500px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .service {
+      min-height: 210px;
+      padding: 28px;
+      background: var(--panel);
+    }
+
+    .service small {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+
+    .service h3 {
+      margin-top: 32px;
+      font-size: 28px;
+    }
+
+    .service p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .photo {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--panel-2);
+      border: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+
+    .photo:hover img { transform: scale(1.04); }
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(300px, 520px) minmax(0, 1fr);
+      gap: clamp(28px, 6vw, 76px);
+      align-items: center;
+      background: #151515;
+    }
+
+    .about img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border: 1px solid var(--line);
+    }
+
+    .about p, .contact p { color: var(--muted); }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .info-box {
+      padding: 30px;
+      background: var(--panel);
+    }
+
+    .hours {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .hours div {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .hours span:first-child { color: var(--muted); }
+    .closed { color: var(--rose); }
+
+    footer {
+      padding: 34px clamp(18px, 5vw, 72px) 92px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 20;
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .34);
+      font-weight: 900;
+    }
+
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .hero, .about, .info-grid { grid-template-columns: 1fr; }
+      .hero-card, .hero-card img { min-height: 430px; }
+      .services, .gallery { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio">Stefany Espindola</a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#horarios">Horários</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <div class="eyebrow">Cílios • Sobrancelhas • Lábios</div>
+        <h1>Realce sua beleza com <span>cílios</span>, sobrancelhas e lábios impecáveis</h1>
+        <p>Atendimento especializado para valorizar seu olhar e sua autoestima com técnica, cuidado e acabamento premium.</p>
+        <div class="actions">
+          <a class="button primary" href="https://wa.me/5548984950997" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+          <a class="button secondary" href="#galeria">Ver resultados</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="assets/hero-profissional.png" alt="Profissional Stefany Espindola">
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="section-head">
+        <h2>Nossos <span>serviços</span></h2>
+        <p>Procedimentos pensados para destacar sua beleza natural, com acabamento delicado e atenção aos detalhes.</p>
+      </div>
+      <div class="services">
+        <article class="service"><small>01</small><h3>Extensão de cílios</h3><p>Volume, curvatura e alongamento personalizados para seu estilo.</p></article>
+        <article class="service"><small>02</small><h3>Design de sobrancelhas</h3><p>Mapeamento facial para harmonizar expressão e formato.</p></article>
+        <article class="service"><small>03</small><h3>Lash lifting</h3><p>Curvatura dos cílios naturais para um olhar mais aberto.</p></article>
+        <article class="service"><small>04</small><h3>Brow lamination</h3><p>Sobrancelhas alinhadas, preenchidas e com efeito moderno.</p></article>
+        <article class="service"><small>05</small><h3>Lábios e gloss</h3><p>Acabamento luminoso para lábios com aparência cuidada.</p></article>
+        <article class="service"><small>06</small><h3>Manutenção</h3><p>Retoques para preservar o resultado bonito por mais tempo.</p></article>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="section-head">
+        <h2>Resultados em <span>destaque</span></h2>
+        <p>Fotos reais para apresentar o estilo do atendimento, os detalhes dos procedimentos e a identidade visual do estúdio.</p>
+      </div>
+      <div class="gallery">
+        <figure class="photo"><img src="assets/cilios-close.png" alt="Close-up de extensão de cílios"></figure>
+        <figure class="photo"><img src="assets/labios-gloss.png" alt="Close-up de lábios com gloss"></figure>
+        <figure class="photo"><img src="assets/resultado-beleza.png" alt="Resultado de beleza com cílios e maquiagem"></figure>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <img src="assets/profissionais.png" alt="Equipe Stefany Espindola">
+      <div>
+        <div class="eyebrow">Sobre o estúdio</div>
+        <h2>Beleza feita com <span>técnica</span> e cuidado</h2>
+        <p>Somos especialistas em beleza do olhar, com atendimento cuidadoso, técnica profissional e foco em resultados naturais, elegantes e duradouros.</p>
+        <p>Cada atendimento é pensado para combinar com seu rosto, sua rotina e o resultado que você deseja.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="horarios">
+      <div class="section-head">
+        <h2>Horários e <span>contato</span></h2>
+        <p>Agende seu horário pelo WhatsApp ou confira a localização para chegar ao estúdio.</p>
+      </div>
+      <div class="info-grid" id="contato">
+        <div class="info-box">
+          <h3>Horário de atendimento</h3>
+          <div class="hours">
+            <div><span>Segunda</span><strong>13h às 22h</strong></div>
+            <div><span>Terça</span><strong>13h às 22h</strong></div>
+            <div><span>Quarta</span><strong>13h às 22h</strong></div>
+            <div><span>Quinta</span><strong>08h às 18h</strong></div>
+            <div><span>Sexta</span><strong>08h às 18h</strong></div>
+            <div><span>Sábado</span><strong>08h às 18h</strong></div>
+            <div><span>Domingo</span><strong class="closed">Fechado</strong></div>
+          </div>
+        </div>
+        <div class="info-box">
+          <h3>Localização</h3>
+          <p>Rua Curió, 211</p>
+          <p>WhatsApp: +55 48 98495-0997</p>
+          <div class="actions">
+            <a class="button primary" href="https://wa.me/5548984950997" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+            <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Rua%20Curio%20211" target="_blank" rel="noopener">Ver rota</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Stefany Espindola • Rua Curió, 211 • WhatsApp +55 48 98495-0997
+  </footer>
+
+</body>
+</html>
